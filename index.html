@@ -270,8 +270,8 @@
 	function twelfthlevel()
 	{
 		t11 = 1;
-		
-		if(thegameisover == 0) dontColorInstruction();
+		setTimeout(function() {document.getElementById("instructions").innerHTML = "<a style=\"font-size: 18px\"><br>You cannot hit <a style=\"font-size: 36px; color: " + dontcolor + ";\">" + "3" + "</a></a>"},1000);
+		setTimeout(function() {document.getElementById("instructions").innerHTML = "<a style=\"font-size: 18px\"><br>You cannot hit <a style=\"font-size: 36px; color: " + dontcolor + ";\">" + "2" + "</a></a>"},2000);setTimeout(function() {document.getElementById("instructions").innerHTML = "<a style=\"font-size: 18px\"><br>You cannot hit <a style=\"font-size: 36px; color: " + dontcolor + ";\">" + "1" + "</a></a>"},3000);
 		setInterval(function() { if(thegameisover == 0){dontColorInstruction();} }, 5000);
 		setInterval(function() { if(t12 == 0 && thegameisover == 0){thecolorlvl10();} }, z7); //700
 	}
@@ -590,13 +590,13 @@
 		switch(c)
 		{
 			case 0:
-				dontcolor = "red";
+				dontcolor = "green";
 				break;
 			case 1:
-				dontcolor = "blue";
+				dontcolor = "red";
 				break;
 			case 2:
-				dontcolor = "green";
+				dontcolor = "blue";
 				break;				
 		}
 		
