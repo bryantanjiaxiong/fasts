@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Fast's</title>
+	<style>
+		.box {height:36px; width: 36px; background-color: white; outline: none; border-radius: 50%; cursor: -webkit-grab; cursor: grab;}
+		.nobox {height:36px; width: 36px; border: 2px white solid; background-color: white; outline: none; border-radius: 50%; cursor: -webkit-grab; cursor: grab;}
+		.spreadoutbox {height:24px; width: 24px; background-color: white; outline: none; border-radius: 50%; cursor: -webkit-grab; cursor: grab; margin: 20px;}
+		.spreadoutnobox {height:24px; width: 24px; border: 2px white solid; background-color: white; outline: none; border-radius: 50%; cursor: -webkit-grab; cursor: grab; margin: 20px;}
+		
+		.secondrow {height:36px; width: 36px; background-color: white; outline: none; border-radius: 50%; cursor: -webkit-grab; cursor: grab; position: relative; animation-name: secondrowanimation; animation-duration: 1s;}	
+		
+		@keyframes secondrowanimation
+		{
+			from {left: -800px;}
+			to {left: 0px;}
+		}
+		
+		.thirdrow {height:36px; width: 36px; background-color: white; outline: none; border-radius: 50%; cursor: -webkit-grab; cursor: grab; position: relative; animation-name: thirdrowanimation; animation-duration: 1s;}	
+		
+		@keyframes thirdrowanimation
+		{
+			from {right: -800px;}
+			to {right: 0px;}
+		}
+	</style>
+</head>
+<body align="center">
+	<div style="height: 100px">
+		<a id="starttimer"><button onclick="startcountdown0()" title="This is for testing, because this is so easy it is kind of unplayable" style="border-radius: 2em; width: 100px; outline: none; cursor: -webkit-grab; cursor: grab;">Much Easier</button> &nbsp <button onclick="startcountdown1()" style="border-radius: 2em; width: 100px; outline: none; cursor: -webkit-grab; cursor: grab;">Easier</button> &nbsp <button onclick="startcountdown2()" style="border-radius: 2em; width: 100px; outline: none; cursor: -webkit-grab; cursor: grab;">Intended</button></a>
+		<div id="instructions"> &nbsp </div>
+	</div>
+	<div style="height: 480px; padding: 48px">
+		<table border="0" align="center"  id="replace">
+			<tr>
+				<td><button id="z[0][0]" class="box" onclick="returnblank(0,0)"></button></td>
+				<td><button id="z[0][1]" class="box" onclick="returnblank(0,1)"></button></td>
+				<td><button id="z[0][2]" class="box" onclick="returnblank(0,2)"></button></td>
+				<td><button id="z[0][3]" class="box" onclick="returnblank(0,3)"></button></td>
+				<td><button id="z[0][4]" class="box" onclick="returnblank(0,4)"></button></td>
+				<td><button id="z[0][5]" class="box" onclick="returnblank(0,5)"></button></td>
+				<td><button id="z[0][6]" class="box" onclick="returnblank(0,6)"></button></td>
+				<td><button id="z[0][7]" class="box" onclick="returnblank(0,7)"></button></td>
+				<td><button id="z[0][8]" class="box" onclick="returnblank(0,8)"></button></td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>
+<script>
+	let z2, z3, z4, z5, z6, z7, z8, z9, z10, z11, z12;
+	var z = [[0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0]];
+	let score = 0;
+	let t1 = t2 = t3 = t4 = t5 = t6 = t7 = t8 = t9 = t10 = t11 = t12 = 0; //these are to make sure the intervals stop at a certain time to allow the next interval to begin, so the game will not fill more than a box at one time 
+	let t13 = t14 = t15 = t16 = t17 = t18 = t19 = t20 = t21 = t22 = 0;
+	let thegameisover = 0; //cannot use the same name as functions
+	
+	var dontcolor = "black";
+	
+	function startcountdown0()
+	{		
+		setTimeout(function(){ document.getElementById("starttimer").innerHTML = "3"; }, 1000);
+		setTimeout(function(){ document.getElementById("starttimer").innerHTML = "2"; }, 2000);
+		setTimeout(function(){ document.getElementById("starttimer").innerHTML = "1"; }, 3000);
+		z2 = 480;
+		z3 = 485;
+		z4 = 490;
+		z5 = 500;
+		z6 = 650;
+		z7 = 700;
+		z8 = 800;
+		z9 = 900;
+		z10 = 1000;
+		z11 = 1100;
+		z12 = 1200;
+		setTimeout(function(){ document.getElementById("starttimer").innerHTML = "Score: " + score; startgame(); }, 4000);
+	}		
+	
+	function startcountdown1()
+	{		
+		setTimeout(function(){ document.getElementById("starttimer").innerHTML = "3"; }, 1000);
+		setTimeout(function(){ document.getElementById("starttimer").innerHTML = "2"; }, 2000);
+		setTimeout(function(){ document.getElementById("starttimer").innerHTML = "1"; }, 3000);
+		z2 = 300;
+		z3 = 470;
+		z4 = 480;
+		z5 = 500;
+		z6 = 650;
+		z7 = 700;
+		z8 = 800;
+		z9 = 900;
+		z10 = 1000;
+		z11 = 1100;
+		z12 = 1200;
+		setTimeout(function(){ document.getElementById("starttimer").innerHTML = "Score: " + score; startgame(); }, 4000);
+	}	
+
+	function startcountdown2()
+	{		
+		setTimeout(function(){ document.getElementById("starttimer").innerHTML = "3"; }, 1000);
+		setTimeout(function(){ document.getElementById("starttimer").innerHTML = "2"; }, 2000);
+		setTimeout(function(){ document.getElementById("starttimer").innerHTML = "1"; }, 3000);
+		z2 = 300;
+		z3 = 300;
+		z4 = 400;
+		z5 = 500;
+		z6 = 600;
+		z7 = 700;
+		z8 = 800;
+		z9 = 900;
+		z10 = 1000;
+		z11 = 1100;
+		z12 = 1200;
+		setTimeout(function(){ document.getElementById("starttimer").innerHTML = "Score: " + score; startgame(); }, 4000);
+	}	
+	
+	function startgame()
+	{
+		setTimeout(firstlevel, 0);
+		setTimeout(secondlevel, 8000);
+		setTimeout(thirdlevel, 16000);
+		setTimeout(fourthlevel, 24000);
+		setTimeout(fifthlevel, 32000);
+		setTimeout(sixthlevel, 40000);
+		setTimeout(seventhlevel, 50000);
+		setTimeout(eighthlevel, 58000);
+		setTimeout(ninthlevel, 64000);
+		setTimeout(levelintermission1, 71500);
+		setTimeout(tenthlevel, 75000);
+		setTimeout(eleventhlevel, 83000);
+		setTimeout(twelfthlevel, 90000);
+		setTimeout(thirteenthlevel, 99000);
+		setTimeout(levelintermission2, 106000);
+		setTimeout(levelintermission3, 107000);
+		setTimeout(fourteenthlevel, 108000);
+		setTimeout(fifteenthlevel, 116000);
+		setTimeout(sixteenthlevel, 124000);
+		setTimeout(seventeenthlevel, 132000);
+		setTimeout(eighteenthlevel, 160000);
+	}
+	
+	function firstlevel()
+	{
+		setInterval(function() { if(t1 == 0 && thegameisover == 0){thecolor();} }, z12); //1200
+	}
+	
+	function secondlevel()
+	{
+		t1 = 1;
+		setInterval(function() { if(t2 == 0 && thegameisover == 0){thecolor();} }, z10); //1000
+	}
+	
+	function thirdlevel()
+	{
+		t2 = 1;
+		setInterval(function() { if(t3 == 0 && thegameisover == 0){thecolor();} }, z8); //800
+	}
+	
+	function fourthlevel()
+	{
+		t3 = 1;
+		setInterval(function() { if(t4 == 0 && thegameisover == 0){thecolor();} }, z6); //600
+	}
+	
+	function fifthlevel()
+	{
+		t4 = 1;
+		setInterval(function() { if(t5 == 0 && thegameisover == 0){thecolor();} }, z5); //500
+	}
+
+	function sixthlevel()
+	{
+		t5 = 1;
+		setInterval(function() { if(t6 == 0 && thegameisover == 0){thecolor();} }, z4); //400
+	}
+	
+	function seventhlevel()
+	{
+		if(thegameisover == 0)
+		{
+			document.getElementById("replace").innerHTML += "<tr><td><button id=\"z[1][0]\" class=\"secondrow\" onclick=\"returnblank(1,0)\"></button></td>"
+			+"<td><button id=\"z[1][1]\" class=\"secondrow\" onclick=\"returnblank(1,1)\"></button></td>"
+			+"<td><button id=\"z[1][2]\" class=\"secondrow\" onclick=\"returnblank(1,2)\"></button></td>"
+			+"<td><button id=\"z[1][3]\" class=\"secondrow\" onclick=\"returnblank(1,3)\"></button></td>"
+			+"<td><button id=\"z[1][4]\" class=\"secondrow\" onclick=\"returnblank(1,4)\"></button></td>"
+			+"<td><button id=\"z[1][5]\" class=\"secondrow\" onclick=\"returnblank(1,5)\"></button></td>"
+			+"<td><button id=\"z[1][6]\" class=\"secondrow\" onclick=\"returnblank(1,6)\"></button></td>"
+			+"<td><button id=\"z[1][7]\" class=\"secondrow\" onclick=\"returnblank(1,7)\"></button></td>"
+			+"<td><button id=\"z[1][8]\" class=\"secondrow\" onclick=\"returnblank(1,8)\"></button></td></tr>"
+			+"<tr><td><button id=\"z[2][0]\" class=\"thirdrow\" onclick=\"returnblank(2,0)\"></button></td>"
+			+"<td><button id=\"z[2][1]\" class=\"thirdrow\" onclick=\"returnblank(2,1)\"></button></td>"
+			+"<td><button id=\"z[2][2]\" class=\"thirdrow\" onclick=\"returnblank(2,2)\"></button></td>"
+			+"<td><button id=\"z[2][3]\" class=\"thirdrow\" onclick=\"returnblank(2,3)\"></button></td>"
+			+"<td><button id=\"z[2][4]\" class=\"thirdrow\" onclick=\"returnblank(2,4)\"></button></td>"
+			+"<td><button id=\"z[2][5]\" class=\"thirdrow\" onclick=\"returnblank(2,5)\"></button></td>"
+			+"<td><button id=\"z[2][6]\" class=\"thirdrow\" onclick=\"returnblank(2,6)\"></button></td>"
+			+"<td><button id=\"z[2][7]\" class=\"thirdrow\" onclick=\"returnblank(2,7)\"></button></td>"
+			+"<td><button id=\"z[2][8]\" class=\"thirdrow\" onclick=\"returnblank(2,8)\"></button></td></tr>";	
+			t6 = 1;
+		}
+		setInterval(function() { if(t7 == 0 && thegameisover == 0){thecolorlvl7();} }, z8);
+	}
+	
+	function eighthlevel()
+	{
+		t7 = 1;
+		setInterval(function() { if(t8 == 0 && thegameisover == 0){thecolorlvl7();} }, z5);
+	}
+	
+	function ninthlevel()
+	{
+		t8 = 1;
+		setInterval(function() { if(t9 == 0 && thegameisover == 0){thecolorlvl7();} }, z3); //300
+	}
+	
+	function levelintermission1()
+	{
+		for(var p = 1; p < 3; p++)
+		{
+			for(var q = 0; q < 9; q++)
+			{
+				document.getElementById("z[" + p + "][" + q + "]").className = "box";
+			}
+		}
+		
+		let i=3;
+		setInterval(function() 
+		{ 
+			if(thegameisover == 0 && i<9)
+			{ 
+				document.getElementById("replace").innerHTML += "<tr><td><button id=\"z[" + i + "][0]\" class=\"box\" onclick=\"returnblank(" + i + ",0)\"></button></td>"
+				+"<td><button id=\"z[" + i + "][1]\" class=\"box\" onclick=\"returnblank(" + i + ",1)\"></button></td>"
+				+"<td><button id=\"z[" + i + "][2]\" class=\"box\" onclick=\"returnblank(" + i + ",2)\"></button></td>"
+				+"<td><button id=\"z[" + i + "][3]\" class=\"box\" onclick=\"returnblank(" + i + ",3)\"></button></td>"
+				+"<td><button id=\"z[" + i + "][4]\" class=\"box\" onclick=\"returnblank(" + i + ",4)\"></button></td>"
+				+"<td><button id=\"z[" + i + "][5]\" class=\"box\" onclick=\"returnblank(" + i + ",5)\"></button></td>"
+				+"<td><button id=\"z[" + i + "][6]\" class=\"box\" onclick=\"returnblank(" + i + ",6)\"></button></td>"
+				+"<td><button id=\"z[" + i + "][7]\" class=\"box\" onclick=\"returnblank(" + i + ",7)\"></button></td>"
+				+"<td><button id=\"z[" + i + "][8]\" class=\"box\" onclick=\"returnblank(" + i + ",8)\"></button></td></tr>";
+				
+				i++;
+			}
+		}, 500);
+	}
+	
+	function tenthlevel()
+	{
+		t9 = 1;
+		setInterval(function() { if(t10 == 0 && thegameisover == 0){thecolorlvl10();} }, z5); //500
+	}
+	
+	function eleventhlevel()
+	{
+		t10 = 1;
+		
+		if(thegameisover == 0)
+		{
+			for(var i = 0; i < 9; i++)
+			{
+				for(var j = 0; j < 9; j++)
+				{
+					document.getElementById("z[" + i + "][" + j + "]").className = "nobox";
+				}
+			}	
+		}		
+		
+		setInterval(function() { if(t11 == 0 && thegameisover == 0){thecolorlvl10();} }, z2); //300
+	}
+	
+	function twelfthlevel()
+	{
+		t11 = 1;
+		setTimeout(function() {document.getElementById("instructions").innerHTML = "<a style=\"font-size: 18px\"><br>You cannot hit <a style=\"font-size: 36px; color: " + dontcolor + ";\">" + "3" + "</a></a>"},1000);
+		setTimeout(function() {document.getElementById("instructions").innerHTML = "<a style=\"font-size: 18px\"><br>You cannot hit <a style=\"font-size: 36px; color: " + dontcolor + ";\">" + "2" + "</a></a>"},2000);setTimeout(function() {document.getElementById("instructions").innerHTML = "<a style=\"font-size: 18px\"><br>You cannot hit <a style=\"font-size: 36px; color: " + dontcolor + ";\">" + "1" + "</a></a>"},3000);
+		setInterval(function() { if(thegameisover == 0){dontColorInstruction();} }, 5000);
+		setInterval(function() { if(t12 == 0 && thegameisover == 0){thecolorlvl10();} }, z7); //700
+	}
+	
+	function thirteenthlevel()
+	{
+		t12 = 1;
+		setInterval(function() { if(t13 == 0 && thegameisover == 0){thecolorlvl10();} }, z4); //400
+	}	
+	
+	function levelintermission2()
+	{	
+		t13 = 1;
+		
+		let p = 0, q = 0;
+		setInterval(function() 
+		{ 
+			if(thegameisover == 0 && q < 9 && p < 9)
+			{ 
+				document.getElementById("z[" + p + "][" + q + "]").style.backgroundColor = "white";
+				document.getElementById("z[" + p + "][" + q + "]").style.opacity = "0";
+				
+				if(q == 8)
+				{
+					p++;
+					q = 0;
+				}
+				else q++;
+			}
+		}, 2);
+	}
+	
+	function levelintermission3()
+	{
+		let p = 0, q = 0;
+		setInterval(function() 
+		{ 
+			if(thegameisover == 0 && q < 9 && p < 9)
+			{ 
+				document.getElementById("z[" + p + "][" + q + "]").className = "spreadoutbox";
+				document.getElementById("z[" + p + "][" + q + "]").style.opacity = "1";
+				
+				if(q == 8)
+				{
+					p++;
+					q = 0;
+				}
+				else q++;
+			}
+		}, 2);
+	}
+	
+	function fourteenthlevel()
+	{	
+		setInterval(function() { if(t14 == 0 && thegameisover == 0){thecolorlvl10();} }, z5); //500
+	}
+	
+	function fifteenthlevel()
+	{	
+		t14 = 1;
+	
+		setInterval(function() { if(t15 == 0 && thegameisover == 0){thecolorlvl10();} }, z2); //300
+	}
+	
+	function sixteenthlevel()
+	{
+		t15 = 1;
+		
+		if(thegameisover == 0)
+		{
+			for(var i = 0; i < 9; i++)
+			{
+				for(var j = 0; j < 9; j++)
+				{
+					document.getElementById("z[" + i + "][" + j + "]").className = "spreadoutnobox";
+				}
+			}	
+		}		
+		
+		setInterval(function() { if(t16 == 0 && thegameisover == 0){thecolorlvl10();} }, z6); //600
+	}
+	
+	function seventeenthlevel()
+	{	
+		t16 = 1;
+	
+		setInterval(function() { if(t17 == 0 && thegameisover == 0){thecolorlvl10();} }, z2); //300
+	}	
+	
+	function eighteenthlevel()
+	{	
+		t17 = 1;
+	
+		setInterval(function() { if(t18 == 0 && thegameisover == 0){thecolorlvl10();} }, 3); //3
+	}		
+	//////===========================================================================================================================================//////
+	
+	function thecolor()
+	{
+		let yesorno = 0;
+		
+		while(yesorno == 0)
+		{
+			let c, j, color1;
+			
+			c = Math.floor(Math.random() * 3);
+			j = Math.floor(Math.random() * 9);
+			
+			switch(c)
+			{
+				case 0:
+					color1 = "red";
+					break;
+				case 1:
+					color1 = "blue";
+					break;
+				case 2:
+					color1 = "green";
+					break;				
+			}
+			
+			if(z[0][j] == 0)
+			{
+				document.getElementById("z[0][" + j + "]").style.backgroundColor = color1;
+				z[0][j] = 1;
+
+				yesorno = 1;
+			}
+		}
+		
+		checkboxes();
+	}
+	
+	function checkboxes()
+	{
+		let rows = 0;
+		
+		for (var j = 0; j < 9; j++) 
+		{
+			if (z[0][j] == 1) 
+			{
+				rows++;
+				if (rows == 9) 
+				{
+					gameover();
+				}
+			}
+		}
+	}
+	
+	function gameover()
+	{
+		thegameisover = 1;
+		let finalscore = score;
+
+		document.getElementById("starttimer").innerHTML = "Score: " + finalscore + "<br><br>Game Over";
+	}
+	
+	function returnblank(i,j)
+	{
+		if(dontcolor == "black")
+		{
+			if(z[i][j] == 1 && thegameisover == 0)
+			{
+				document.getElementById("starttimer").innerHTML = "Score: " + ++score; //score++ is not suitable for this case, as it shows the previous value and then only updates its value
+				document.getElementById("z[" + i + "][" + j + "]").style.backgroundColor = "white";
+				z[i][j] = 0;
+			}
+		}	
+		else
+		{
+			let getcolorofbox = document.getElementById("z[" + i + "][" + j + "]").style.backgroundColor;
+			if(getcolorofbox == dontcolor)
+			{
+				gameover();
+			}
+			else if(z[i][j] == 1 && thegameisover == 0)
+			{
+				document.getElementById("starttimer").innerHTML = "Score: " + ++score;
+				document.getElementById("z[" + i + "][" + j + "]").style.backgroundColor = "white";
+				z[i][j] = 0;
+			}
+		}
+	}
+	
+	//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+	//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+	//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+	
+	function thecolorlvl7()
+	{
+		let yesorno = 0;
+		
+		while(yesorno == 0)
+		{
+			let c, i, j, color;
+			
+			c = Math.floor(Math.random() * 3);
+			i = Math.floor(Math.random() * 3);
+			j = Math.floor(Math.random() * 9);
+			
+			switch(c)
+			{
+				case 0:
+					color = "red";
+					break;
+				case 1:
+					color = "blue";
+					break;
+				case 2:
+					color = "green";
+					break;				
+			}
+			
+			if(z[i][j] == 0)
+			{
+				document.getElementById("z[" + i + "][" + j + "]").style.backgroundColor = color;
+				z[i][j] = 1;
+
+				yesorno = 1;
+			}
+		}
+		
+		checkboxeslvl7();
+	}
+	
+	function checkboxeslvl7()
+	{
+		var rows = [0, 0, 0];
+		for (var i = 0; i < 3; i++) 
+		{
+			for (var j = 0; j < 9; j++) 
+			{
+				if (z[i][j] == 1) 
+				{
+					rows[i]++;
+					if (rows[i] == 9) 
+					{
+						gameover();
+					}
+				}
+			}
+		}
+	}
+	
+	//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+	//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+	//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+	
+	function thecolorlvl10()
+	{
+		let yesorno = 0;
+		
+		while(yesorno == 0)
+		{
+			let c, i, j, color;
+			
+			c = Math.floor(Math.random() * 3);
+			i = Math.floor(Math.random() * 9);
+			j = Math.floor(Math.random() * 9);
+			
+			switch(c)
+			{
+				case 0:
+					color = "red";
+					break;
+				case 1:
+					color = "blue";
+					break;
+				case 2:
+					color = "green";
+					break;				
+			}
+			
+			if(z[i][j] == 0)
+			{
+				document.getElementById("z[" + i + "][" + j + "]").style.backgroundColor = color;
+				z[i][j] = 1;
+
+				yesorno = 1;
+			}
+		}
+		
+		checkboxeslvl10();
+	}
+	
+	function checkboxeslvl10()
+	{
+		var rows = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+		for (var i = 0; i < 9; i++) 
+		{
+			for (var j = 0; j < 9; j++) 
+			{
+				if (z[i][j] == 1) 
+				{
+					rows[i]++;
+					if (rows[i] == 9) 
+					{
+						gameover();
+					}
+				}
+			}
+		}
+	}
+
+	//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+	//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+	//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+	function dontColorInstruction()
+	{
+		let c;
+			
+		c = Math.floor(Math.random() * 3);
+		
+		switch(c)
+		{
+			case 0:
+				dontcolor = "green";
+				break;
+			case 1:
+				dontcolor = "red";
+				break;
+			case 2:
+				dontcolor = "blue";
+				break;				
+		}
+		
+		document.getElementById("instructions").innerHTML = "<a style=\"font-size: 18px\"><br>You cannot hit <a style=\"font-size: 36px; color: " + dontcolor + ";\">" + dontcolor + "</a></a>";
+	}
+
+	//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+	//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+	//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+	
+	
+</script>
