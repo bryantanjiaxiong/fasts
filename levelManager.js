@@ -13,6 +13,7 @@ function startLevels(timings)
     addRowToBoard(0);
     setTimeout(()=>{level1(timings[8]); },0);
     setTimeout(()=>{level1(timings[5]); },15000);
+    // setTimeout(()=>{blink(500,15000) },16000);
     setTimeout(()=>{level1(timings[3]); },30000);
     setTimeout(()=>{level1(timings[1]); },45000);
     setTimeout(()=>{level1(timings[0]); },60000);
@@ -162,4 +163,51 @@ function incrementScore() {
     currentScore += 1; // Increment score
     scoreElement.setAttribute("data-score", currentScore);
     scoreElement.innerHTML = `Score: ${currentScore}`;
+}
+
+/**
+ * hides all buttons, given number of rows
+ * @param {*} rows number of rows
+ */
+function hideButton(rows)
+{
+    for(var i =0; i < rows; i++)
+    {
+        for(var j=0; j < 9 ; j++)
+        {   
+            var button = document.getElementById("z[" + i + "][" + j + "]")
+            button.style.opacity = "0";
+        }
+    }
+}
+
+/**
+ * show all buttons, given number of rows
+ * @param {*} rows number of rows
+ */
+function showButton(rows)
+{
+    for(var i =0; i < rows; i++)
+    {
+        for(var j=0; j < 9 ; j++)
+        {   
+            var button = document.getElementById("z[" + i + "][" + j + "]")
+            button.style.opacity = "1";
+        }
+    }
+}
+
+/**
+ * blink the buttons, given the blinking interval and length of the blinking.
+ * @param {*} interval interval between the hiding and showing the button.
+ * @param {*} length length of the blinking.
+ */
+function blink(interval, length)
+{
+    var test;
+    var test2;
+    setTimeout(()=>{test = setInterval(function() {hideButton(1)},2000);},0);
+    setTimeout(()=>{test2 = setInterval(function() {showButton(1)},2000);},interval);
+    setTimeout(()=>{clearInterval(test)},length-interval)
+    setTimeout(()=>{clearInterval(test2)},length)
 }

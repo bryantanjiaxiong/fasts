@@ -35,3 +35,4 @@ function level12(timings)
     generateDontColorInstruction();
     setTimeout(() => {clearInterval(test)}, 14500);
 }
+
