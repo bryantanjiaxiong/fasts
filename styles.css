@@ -54,3 +54,14 @@ body {
     border-radius: 50%;
     cursor: pointer;
 }
+
+.spreadoutbox {
+    height:24px; 
+    width: 24px; 
+    background-color: white; 
+    outline: none; 
+    border-radius: 50%; 
+    cursor: -webkit-grab; 
+    cursor: grab; 
+    margin: 20px;
+}

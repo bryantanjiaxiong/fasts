@@ -13,7 +13,7 @@ function startLevels(timings)
     addRowToBoard(0);
     setTimeout(()=>{level1(timings[8]); },0);
     setTimeout(()=>{level1(timings[5]); },15000);
-    // setTimeout(()=>{blink(500,15000) },16000);
+    setTimeout(()=>{blink(1,500,20000); },16000);
     setTimeout(()=>{level1(timings[3]); },30000);
     setTimeout(()=>{level1(timings[1]); },45000);
     setTimeout(()=>{level1(timings[0]); },60000);
@@ -22,8 +22,11 @@ function startLevels(timings)
     setTimeout(()=>{level7(timings[4]); },76000);
     setTimeout(()=>{level7(timings[3]); },91000);
     setTimeout(()=>{level7(timings[1]); },106000);
+    setTimeout(()=>{widenedButton(3,true); },107000);
     setTimeout(()=>{level7(timings[0]); },121000);
-    setTimeout(()=>{level7(timings[0]); },134000); // do we want double colors per time?
+    setTimeout(()=>{level7(timings[0]); },134000);
+    setTimeout(()=>{blink(3,500,20000); },135000);
+    setTimeout(()=>{widenedButton(3,false); },136000);
     setTimeout(()=>{if(theGameIsOver == false) {addRowToBoard(3);}},149000);
     setTimeout(()=>{if(theGameIsOver == false) {addRowToBoard(4);}},149100);
     setTimeout(()=>{if(theGameIsOver == false) {addRowToBoard(5);}},149200);
@@ -33,13 +36,18 @@ function startLevels(timings)
     setTimeout(()=>{level10(timings[3]); },150000); 
     setTimeout(()=>{level10(timings[2]); },165000);
     setTimeout(()=>{level10(timings[1]); },180000);
+    setTimeout(()=>{blink(9,500,20000); },181000);
     setTimeout(()=>{level10(timings[0]); },195000);
     setTimeout(()=>{level10(timings[0]); },210000);
-    setTimeout(()=>{level12(timings[3]); },225000); 
-    setTimeout(()=>{level12(timings[2]); },240000);
-    setTimeout(()=>{level12(timings[1]); },255000);
-    setTimeout(()=>{level12(timings[0]); },270000);
-    setTimeout(()=>{level12(timings[0]); },285000);
+    setTimeout(()=>{widenedButton(9,true); },211000);
+    setTimeout(()=>{level10(timings[3]); },225000); 
+    setTimeout(()=>{level10(timings[2]); },240000);
+    setTimeout(()=>{widenedButton(9,false); },241000);
+    setTimeout(()=>{level12(timings[3]); },255000); 
+    setTimeout(()=>{level12(timings[2]); },270000);
+    setTimeout(()=>{level12(timings[1]); },285000);
+    setTimeout(()=>{level12(timings[0]); },300000);
+    setTimeout(()=>{level12(timings[0]); },315000);
 }
 
 /**
@@ -202,12 +210,43 @@ function showButton(rows)
  * @param {*} interval interval between the hiding and showing the button.
  * @param {*} length length of the blinking.
  */
-function blink(interval, length)
+function blink(rows, interval, length)
 {
     var test;
     var test2;
-    setTimeout(()=>{test = setInterval(function() {hideButton(1)},2000);},0);
-    setTimeout(()=>{test2 = setInterval(function() {showButton(1)},2000);},interval);
+    setTimeout(()=>{test = setInterval(function() {hideButton(rows)},2000);},0);
+    setTimeout(()=>{test2 = setInterval(function() {showButton(rows)},2000);},interval);
     setTimeout(()=>{clearInterval(test)},length-interval)
     setTimeout(()=>{clearInterval(test2)},length)
+}
+
+/**
+ * Widened the buttons, given the number of rows and if its true.
+ * @param {*} rows number of rows
+ * @param {*} bool true for widen the rows, false for unwiden.
+ */
+function widenedButton(rows,bool)
+{
+    if(bool)
+    {    
+        for(var i =0; i < rows; i++)
+        {
+            for(var j=0; j < 9 ; j++)
+            {   
+                var button = document.getElementById("z[" + i + "][" + j + "]")
+                button.className = "spreadoutbox";
+            }
+        }
+    }
+    else
+    {
+        for(var i =0; i < rows; i++)
+            {
+                for(var j=0; j < 9 ; j++)
+                {   
+                    var button = document.getElementById("z[" + i + "][" + j + "]")
+                    button.className = "box";
+                }
+            }
+    }
 }

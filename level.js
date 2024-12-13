@@ -13,7 +13,7 @@ function level1(timings)
  */
 function level7(timings)
 {
-    var test = setInterval(function() { if(theGameIsOver == false){getRandomColor(3,9);} }, timings);
+    var test = setInterval(function() { if(theGameIsOver == false){getRandomColor(3,9);getRandomColor(3,9);} }, timings);
     setTimeout(() => {clearInterval(test)}, 14500)
 }
 /**
@@ -22,7 +22,7 @@ function level7(timings)
  */
 function level10(timings)
 {
-    var test = setInterval(function() { if(theGameIsOver == false){getRandomColor(9,9);} }, timings);
+    var test = setInterval(function() { if(theGameIsOver == false){getRandomColor(9,9);getRandomColor(9,9);getRandomColor(9,9);} }, timings);
     setTimeout(() => {clearInterval(test)}, 14500)
 }
 /**
