@@ -19,8 +19,8 @@ function startLevels(timings)
     setTimeout(()=>{level1(timings[0]); },60000);
     setTimeout(()=>{if(theGameIsOver == false) {addRowToBoard(1);}},75000);
     setTimeout(()=>{if(theGameIsOver == false) {addRowToBoard(2);}},75100);
-    setTimeout(()=>{level7(timings[4]); },76000);
-    setTimeout(()=>{level7(timings[3]); },91000);
+    setTimeout(()=>{level7(timings[8]); },76000);
+    setTimeout(()=>{level7(timings[4]); },91000);
     setTimeout(()=>{level7(timings[1]); },106000);
     setTimeout(()=>{widenedButton(3,true); },107000);
     setTimeout(()=>{level7(timings[0]); },121000);
@@ -33,8 +33,8 @@ function startLevels(timings)
     setTimeout(()=>{if(theGameIsOver == false) {addRowToBoard(6);}},149300);
     setTimeout(()=>{if(theGameIsOver == false) {addRowToBoard(7);}},149400);
     setTimeout(()=>{if(theGameIsOver == false) {addRowToBoard(8);}},149500);
-    setTimeout(()=>{level10(timings[3]); },150000); 
-    setTimeout(()=>{level10(timings[2]); },165000);
+    setTimeout(()=>{level10(timings[8]); },150000); 
+    setTimeout(()=>{level10(timings[5]); },165000);
     setTimeout(()=>{level10(timings[1]); },180000);
     setTimeout(()=>{blink(9,500,20000); },181000);
     setTimeout(()=>{level10(timings[0]); },195000);
@@ -85,7 +85,15 @@ function handleCellClick(rowindex, columnindex) {
         // End game logic if restricted color is clicked
         alert(`Game Over! You clicked the restricted color: ${dontColor}`);
         gameover();
-    } else {
+    }
+    else if(document.getElementById("z[" + rowindex + "][" + columnindex + "]").style.backgroundColor === "white")
+        {
+            const colors = ["red", "blue", "green"];
+            setColor = colors[Math.floor(Math.random() * colors.length)];
+            document.getElementById("z[" + rowindex + "][" + columnindex + "]").style.backgroundColor = setColor;
+            z[rowindex][columnindex] = 1;
+        } 
+    else {
 		document.getElementById("z[" + rowindex + "][" + columnindex + "]").style.backgroundColor = "white";
         incrementScore();
         z[rowindex][columnindex] = 0;
@@ -107,8 +115,6 @@ function getRandomColor(rows,columns) {
     {
         document.getElementById("z[" + i + "][" + j + "]").style.backgroundColor = setColor;
         z[i][j] = 1;
-
-        yesorno = 1;
     }
     checkboxes(rows);
 }
@@ -207,6 +213,7 @@ function showButton(rows)
 
 /**
  * blink the buttons, given the blinking interval and length of the blinking.
+ * @param {*} rows number of rows.
  * @param {*} interval interval between the hiding and showing the button.
  * @param {*} length length of the blinking.
  */
