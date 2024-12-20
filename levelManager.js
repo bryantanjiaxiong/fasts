@@ -10,7 +10,7 @@ let dontColor = "black"; // Default color to avoid
  */
 function startLevels(timings)
 {
-    addRowToBoard(0);
+    {addRowToBoard(0);
     setTimeout(()=>{level1(timings[8]); },0);
     setTimeout(()=>{level1(timings[5]); },15000);
     setTimeout(()=>{blink(1,500,20000); },16000);
@@ -47,7 +47,7 @@ function startLevels(timings)
     setTimeout(()=>{level12(timings[2]); },270000);
     setTimeout(()=>{level12(timings[1]); },285000);
     setTimeout(()=>{level12(timings[0]); },300000);
-    setTimeout(()=>{level12(timings[0]); },315000);
+    setTimeout(()=>{level12(timings[0]); },315000);}
 }
 
 /**
@@ -81,7 +81,8 @@ function addRowToBoard(rowindex) {
  * @param {*} columnindex nth column.
  */
 function handleCellClick(rowindex, columnindex) {
-    if (document.getElementById("z[" + rowindex + "][" + columnindex + "]").style.backgroundColor === dontColor) {
+    if(theGameIsOver ==false)
+    {    if (document.getElementById("z[" + rowindex + "][" + columnindex + "]").style.backgroundColor === dontColor) {
         // End game logic if restricted color is clicked
         alert(`Game Over! You clicked the restricted color: ${dontColor}`);
         gameover();
@@ -94,10 +95,10 @@ function handleCellClick(rowindex, columnindex) {
             z[rowindex][columnindex] = 1;
         } 
     else {
-		document.getElementById("z[" + rowindex + "][" + columnindex + "]").style.backgroundColor = "white";
+        document.getElementById("z[" + rowindex + "][" + columnindex + "]").style.backgroundColor = "white";
         incrementScore();
         z[rowindex][columnindex] = 0;
-    }
+    }}
 }
 
 
