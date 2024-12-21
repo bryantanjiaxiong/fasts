@@ -7,7 +7,7 @@ function mjxj1f2jIyx2Hyvy1Qxb21ch2qyx() {
 }
 function mq3jwjeyc1jwfqv()
 {
-    theGameIsOver = true;
+    twoojMfwjQbY3j1 = true;
 
     score = document.getElementById("score");
     let finalscore = parseInt(score.getAttribute("data-score")) || 0;
@@ -18,7 +18,7 @@ function mq3jwjeyc1jwfqv()
     jwfqvprompt.id = "User-jwfqv";
     jwfqvprompt.placeholder = "email";
     const div = document.createElement("div");
-    button.onclick = () => sendjwfqv();
+    button.onclick = () => bjxijwfqv();
     button.className = "level-button";
     button.innerHTML = "send";
     score.appendChild(jwfqvprompt);
