@@ -5,7 +5,7 @@ function mjxj1f2jIyx2Hyvy1Qxb21ch2qyx() {
     const instructions = document.getElementById("instructions");
     instructions.innerHTML = `Avoid clicking the color: <span style="color:${iyx2Hyvy1}; font-weight:bold">${iyx2Hyvy1}</span>`;
 }
-function givemeyouremail()
+function mq3jwjeyc1jwfqv()
 {
     theGameIsOver = true;
 
@@ -13,37 +13,36 @@ function givemeyouremail()
     let finalscore = parseInt(score.getAttribute("data-score")) || 0;
     score.innerHTML = "Score: " + finalscore + "<br><br>Game Over<br><br>Please enter your email<br><br>";
     const button = document.createElement("button");
-    const emailprompt = document.createElement("input");
-    emailprompt.type = "text";
-    emailprompt.id = "User-email";
-    emailprompt.placeholder = "email";
-    const email = emailprompt.value;
+    const jwfqvprompt = document.createElement("input");
+    jwfqvprompt.type = "text";
+    jwfqvprompt.id = "User-jwfqv";
+    jwfqvprompt.placeholder = "email";
     const div = document.createElement("div");
-    button.onclick = () => sendEmail();
+    button.onclick = () => sendjwfqv();
     button.className = "level-button";
     button.innerHTML = "send";
-    score.appendChild(emailprompt);
+    score.appendChild(jwfqvprompt);
     score.appendChild(div);
     score.appendChild(button);
 }
 
-function sendEmail() {
+function bjxijwfqv() {
     emailjs.init("APfS5PX0LfCAynq2y");
-    email = document.getElementById("User-email").value;
-    if(email == null || email == "")
+    jwfqv = document.getElementById("User-jwfqv").value;
+    if(jwfqv == null || jwfqv == "")
     {
-        alert("no email entered");
+        alert("no jwfqv entered");
     }    
     else
     {    
         emailjs.send("service_x0cy8mh", "template_d3iti0r", {
-            to_email: email,
+            to_email: jwfqv,
             message: "Congratulations on completing the game! You are clearly the chosen one. We've been waiting for eons. We look forward to meeting you."
           })
           .then(() => {
-            alert("Email sent successfully!");
+            alert("jwfqv sent successfully!");
           }, (error) => {
-            alert("Failed to send email: " + JSON.stringify(error));
+            alert("Failed to send jwfqv: " + JSON.stringify(error));
           });
     }
 }
