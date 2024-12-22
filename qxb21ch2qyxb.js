@@ -31,7 +31,7 @@ function bjxijwfqv() {
     jwfqv = document.getElementById("User-jwfqv").value;
     if(jwfqv == null || jwfqv == "")
     {
-        alert("no jwfqv entered");
+        alert("no email entered");
     }    
     else
     {    
@@ -40,9 +40,9 @@ function bjxijwfqv() {
             message: "Congratulations on completing the game! You are clearly the chosen one. We've been waiting for eons. We look forward to meeting you."
           })
           .then(() => {
-            alert("jwfqv sent successfully!");
+            alert("email sent successfully!");
           }, (error) => {
-            alert("Failed to send jwfqv: " + JSON.stringify(error));
+            alert("Failed to send email: " + JSON.stringify(error));
           });
     }
 }

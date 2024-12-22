@@ -215,23 +215,26 @@ function fii1yd2yGyf1i(oneydqxij4)
 
 function handleCellClick(oneydqxij4, hyvcwxqxij4)
 {
-	if (document.getElementById("z[" + oneydqxij4 + "][" + hyvcwxqxij4 + "]").style.backgroundColor === iyx2Hyvy1)
-	{
-		alert(`Game Over! You clicked the restricted color: ${iyx2Hyvy1}`);
-		mfwjy3j1()
-	}
-	else if (document.getElementById("z[" + oneydqxij4 + "][" + hyvcwxqxij4 + "]").style.backgroundColor === "white")
-	{
-		const colors = ["red", "blue", "green"];
-		setColor = colors[Math.floor(Math.random() * colors.length)];
-		document.getElementById("z[" + oneydqxij4 + "][" + hyvcwxqxij4 + "]").style.backgroundColor = setColor;
-		z[oneydqxij4][hyvcwxqxij4] = 1
-	}
-	else
-	{
-		document.getElementById("z[" + oneydqxij4 + "][" + hyvcwxqxij4 + "]").style.backgroundColor = "white";
-		qxh1jwjx2Bhy1j();
-		z[oneydqxij4][hyvcwxqxij4] = 0
+	if(twoojMfwjQbY3j1 == false)
+	{	
+		if (document.getElementById("z[" + oneydqxij4 + "][" + hyvcwxqxij4 + "]").style.backgroundColor === iyx2Hyvy1)
+		{
+			alert(`Game Over! You clicked the restricted color: ${iyx2Hyvy1}`);
+			mfwjy3j1()
+		}
+		else if (document.getElementById("z[" + oneydqxij4 + "][" + hyvcwxqxij4 + "]").style.backgroundColor === "white")
+		{
+			const colors = ["red", "blue", "green"];
+			setColor = colors[Math.floor(Math.random() * colors.length)];
+			document.getElementById("z[" + oneydqxij4 + "][" + hyvcwxqxij4 + "]").style.backgroundColor = setColor;
+			z[oneydqxij4][hyvcwxqxij4] = 1
+		}
+		else
+		{
+			document.getElementById("z[" + oneydqxij4 + "][" + hyvcwxqxij4 + "]").style.backgroundColor = "white";
+			qxh1jwjx2Bhy1j();
+			z[oneydqxij4][hyvcwxqxij4] = 0
+		}
 	}
 }
 
