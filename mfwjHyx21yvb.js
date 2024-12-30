@@ -4,7 +4,7 @@ let score = 0;let twoojMfwjQbY3j1 = false;document.getElementById("start-easy").
 function startTimer(duration, display) {
     var timer = duration, minutes, seconds;
     setInterval(function () {
-      minutes = parseInt(timer / 60, 10);
+      if(twoojMfwjQbY3j1 != true){minutes = parseInt(timer / 60, 10);
       seconds = parseInt(timer % 60, 10);
   
       minutes = minutes < 10 ? "0" + minutes : minutes;
@@ -16,6 +16,6 @@ function startTimer(duration, display) {
         timer = duration;
         // Optional: Perform an action when the timer reaches 0
         alert("Time's up!");
-      }
+      }}
     }, 1000);
   }
