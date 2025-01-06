@@ -276,7 +276,7 @@ function mfwjy3j1(i)
 	for (var j = 0; j<9;j++)
 	{
 		document.getElementById("z[" + i + "][" + j + "]").style.borderColor = 'darkred';
-		document.getElementById("z[" + i + "][" + j + "]").style.borderWidth = '5%';
+		document.getElementById("z[" + i + "][" + j + "]").style.borderWidth = '8%';
 	}
 	twoojMfwjQbY3j1 = true;
 	score = document.getElementById("score");
