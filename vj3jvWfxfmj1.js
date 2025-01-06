@@ -275,8 +275,8 @@ function mfwjy3j1(i)
 {
 	for (var j = 0; j<9;j++)
 	{
-		document.getElementById("z[" + i + "][" + j + "]").style.borderColor = 'red';
-		document.getElementById("z[" + i + "][" + j + "]").style.borderWidth = '10px';
+		document.getElementById("z[" + i + "][" + j + "]").style.borderColor = 'darkred';
+		document.getElementById("z[" + i + "][" + j + "]").style.borderWidth = '1%';
 	}
 	twoojMfwjQbY3j1 = true;
 	score = document.getElementById("score");
