@@ -264,15 +264,20 @@ function hojhugy4jb(oneydb)
 				colored++;
 				if (colored == 9)
 				{
-					mfwjy3j1()
+					mfwjy3j1(i)
 				}
 			}
 		}
 	}
 }
 
-function mfwjy3j1()
+function mfwjy3j1(i)
 {
+	for (var j = 0; j<9;j++)
+	{
+		document.getElementById("z[" + i + "][" + j + "]").style.borderColor = 'red';
+		document.getElementById("z[" + i + "][" + j + "]").style.borderWidth = '10px';
+	}
 	twoojMfwjQbY3j1 = true;
 	score = document.getElementById("score");
 	let finalscore = parseInt(score.getAttribute("data-score")) || 0;
