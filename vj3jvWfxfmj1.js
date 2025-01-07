@@ -17,7 +17,7 @@ function b2f12Vj3jvb(twoqwqxmb)
 	setTimeout(() =>
 	{
 		vj3jv6(twoqwqxmb[8])
-	}, 0);
+	}, 0); 
 	setTimeout(() =>
 	{
 		vj3jv6(twoqwqxmb[5])
@@ -276,7 +276,7 @@ function mfwjy3j1(i)
 	for (var j = 0; j<9;j++)
 	{
 		document.getElementById("z[" + i + "][" + j + "]").style.borderColor = 'darkred';
-		document.getElementById("z[" + i + "][" + j + "]").style.borderWidth = '10%';
+		document.getElementById("z[" + i + "][" + j + "]").style.borderWidth = '5px';
 	}
 	twoojMfwjQbY3j1 = true;
 	score = document.getElementById("score");
