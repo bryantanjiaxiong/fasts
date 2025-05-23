@@ -224,7 +224,7 @@ function handleCellClick(oneydqxij4, hyvcwxqxij4)
 		}
 		else if (document.getElementById("z[" + oneydqxij4 + "][" + hyvcwxqxij4 + "]").style.backgroundColor === "white")
 		{
-			const colors = ["red", "blue", "green"];
+			const colors = ["#CC5500", "#2e8a56", "#00008B"];
 			setColor = colors[Math.floor(Math.random() * colors.length)];
 			document.getElementById("z[" + oneydqxij4 + "][" + hyvcwxqxij4 + "]").style.backgroundColor = setColor;
 			z[oneydqxij4][hyvcwxqxij4] = 1
@@ -240,7 +240,7 @@ function handleCellClick(oneydqxij4, hyvcwxqxij4)
 
 function mj21fxiywHyvy1(oneydb, hyvcwxb)
 {
-	const colors = ["red", "blue", "green"];
+	const colors = ["#CC5500", "#2e8a56", "#00008B"];
 	setColor = colors[Math.floor(Math.random() * colors.length)];
 	var i = Math.floor(Math.random() * oneydb);
 	var j = Math.floor(Math.random() * hyvcwxb);
