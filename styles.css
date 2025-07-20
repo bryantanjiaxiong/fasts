@@ -82,9 +82,6 @@ body {
         height: 24px;
         width: 24px;
     }
-    #instructions{
-        font-size: 20px;
-    }
 }
 /* Regular mobile devices */
 @media screen and (min-width: 700px) {
@@ -101,10 +98,24 @@ body {
         height: 30px;
         width: 30px;
     }
-    #instructions{
-        font-size: 20px;
+}
+/* Regular laptops devices */
+@media screen and (min-width: 992px) {
+    .spreadoutbox {
+        height: 36px;
+        width: 36px;
+        margin: 25px;
+    }  
+    .box {
+        height: 48px;
+        width: 48px;
+    }
+    .nobox {
+        height: 48px;
+        width: 48px;
     }
 }
+
 
 
 #bar{
