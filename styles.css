@@ -67,11 +67,45 @@ body {
     margin: 25px;
 }
 
-@media screen and (max-width: 700px) {
+/* Small mobile devices */
+@media screen and (max-width: 600px) {
     .spreadoutbox {
+        height: 15px;
+        width:15px;
         margin: 0%;
     }  
+    .box {
+        height: 24px;
+        width: 24px;
+    }
+    .nobox {
+        height: 24px;
+        width: 24px;
+    }
+    #instructions{
+        font-size: 20px;
+    }
 }
+/* Regular mobile devices */
+@media screen and (min-width: 700px) {
+    .spreadoutbox {
+        height: 20px;
+        width: 20px;
+        margin: 0%;
+    }  
+    .box {
+        height: 30px;
+        width: 30px;
+    }
+    .nobox {
+        height: 30px;
+        width: 30px;
+    }
+    #instructions{
+        font-size: 20px;
+    }
+}
+
 
 #bar{
     bottom: 0% ;
