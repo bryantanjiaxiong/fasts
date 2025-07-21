@@ -8,15 +8,6 @@
     <title>tapTAPtap's</title>
     <link rel="icon" type="image/x-icon" href="./favicon.ico" />
     <link rel="stylesheet" href="styles.css">
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-J83EW9X1JV"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-J83EW9X1JV');
-</script>
 </head>
 <body align="center">
     <div id="navbar">
@@ -25,6 +16,14 @@
         <button id="start-intended" class="level-button" title="Intended Level">Intended</button>
         <div id="instructions">Welcome to tapTAPtap's<br>Select the difficulty you want to proceed with.<br>The goal of the game is to prevent any row from filling up with colors.<br>TAP precisely on the colored buttons or there will be consequences.<br>Have fun!</div>
         <div id="score">&nbsp;</div>
+    </div>
+    
+    <div id="consent-popup" style="display:none; position:fixed; z-index:9999; left:0; right:0; bottom:0; background:#fff; border-top:1px solid #ccc; padding:20px; box-shadow:0 -2px 8px rgba(0,0,0,0.1);">
+        <span>
+            This site uses Google Analytics to understand how visitors interact. By continuing, you consent to this use. 
+            <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">Learn more</a>.
+        </span>
+        <button id="consent-accept" class="level-button">Accept</button>
     </div>
 
 
@@ -51,5 +50,6 @@
     <script src="vj3jv.js"></script>
     <script src="mfwjHyx21yvb.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="GA.js"></script>
 </body>
 </html>
