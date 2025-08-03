@@ -10,7 +10,7 @@ function loadGA() {
         function gtag(){dataLayer.push(arguments);}
         window.gtag = gtag;
         gtag('js', new Date());
-        gtag('config', 'G-J83EW9X1JV');
+        gtag('config', 'G-5YGZ8K86JH');
     };
 }
 
