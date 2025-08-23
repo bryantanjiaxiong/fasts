@@ -72,7 +72,7 @@ body {
     .spreadoutbox {
         height: 15px;
         width:15px;
-        margin: 0%;
+        margin: 1%;
     }  
     .box {
         height: 27px;
@@ -88,7 +88,7 @@ body {
     .spreadoutbox {
         height: 20px;
         width: 20px;
-        margin: 0%;
+        margin: 1%;
     }  
     .box {
         height: 32px;
@@ -99,6 +99,23 @@ body {
         width: 32px;
     }
 }
+
+@media screen and (min-width: 800px) {
+    .spreadoutbox {
+        height: 24px;
+        width: 24px;
+        margin: 1%;
+    }  
+    .box {
+        height: 32px;
+        width: 32px;
+    }
+    .nobox {
+        height: 32px;
+        width: 32px;
+    }
+}
+
 /* Regular laptops devices */
 @media screen and (min-width: 992px) {
     .spreadoutbox {
