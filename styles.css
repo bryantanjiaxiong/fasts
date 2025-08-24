@@ -5,6 +5,7 @@ body {
     padding: 0;
     text-align: center;
     touch-action: manipulation;
+    overflow-x: hidden;
 }
 
 #navbar {
@@ -75,13 +76,16 @@ body {
         width:15px;
         margin: 1%;
     }  
+    #instructions {
+        font-size: 16px;
+    }
     .box {
-        height: 27px;
-        width: 27px;
+        height: 28px;
+        width:  28px;
     }
     .nobox {
-        height: 27px;
-        width: 27px;
+        height: 28px;
+        width: 28px;
     }
 }
 /* Regular mobile devices */
@@ -91,9 +95,12 @@ body {
         width: 20px;
         margin: 1%;
     }  
+    #instructions {
+        font-size: 16px;
+    }
     .box {
         height: 36px;
-        width: 36px;
+        width:  36px;
     }
     .nobox {
         height: 32px;
@@ -107,6 +114,9 @@ body {
         width: 24px;
         margin: 1%;
     }  
+    #instructions {
+        font-size: 24px;
+    }
     .box {
         height: 36px;
         width: 36px;
