@@ -40,17 +40,19 @@ function b2f12Vj3jvb(twoqwqxmb)
 	}, 6e4);
 	setTimeout(() =>
 	{
-		if (twoojMfwjQbY3j1 == false)
+		if (twoojMfwjQbY3j1 === false)
 		{
 			fii1yd2yGyf1i(1)
 		}
+		else return;
 	}, 75e3);
 	setTimeout(() =>
 	{
-		if (twoojMfwjQbY3j1 == false)
+		if (twoojMfwjQbY3j1 === false)
 		{
 			fii1yd2yGyf1i(2)
 		}
+		else return;
 	}, 75100);
 	setTimeout(() =>
 	{
@@ -86,45 +88,51 @@ function b2f12Vj3jvb(twoqwqxmb)
 	}, 136e3);
 	setTimeout(() =>
 	{
-		if (twoojMfwjQbY3j1 == false)
+		if (twoojMfwjQbY3j1 === false)
 		{
 			fii1yd2yGyf1i(3)
 		}
+		else return;
 	}, 149e3);
 	setTimeout(() =>
 	{
-		if (twoojMfwjQbY3j1 == false)
+		if (twoojMfwjQbY3j1 === false)
 		{
 			fii1yd2yGyf1i(4)
 		}
+		else return;
 	}, 149100);
 	setTimeout(() =>
 	{
-		if (twoojMfwjQbY3j1 == false)
+		if (twoojMfwjQbY3j1 === false)
 		{
 			fii1yd2yGyf1i(5)
 		}
+		else return;
 	}, 149200);
 	setTimeout(() =>
 	{
-		if (twoojMfwjQbY3j1 == false)
+		if (twoojMfwjQbY3j1 === false)
 		{
 			fii1yd2yGyf1i(6)
 		}
+		else return;
 	}, 149300);
 	setTimeout(() =>
 	{
-		if (twoojMfwjQbY3j1 == false)
+		if (twoojMfwjQbY3j1 === false)
 		{
 			fii1yd2yGyf1i(7)
 		}
+		else return;
 	}, 149400);
 	setTimeout(() =>
 	{
-		if (twoojMfwjQbY3j1 == false)
+		if (twoojMfwjQbY3j1 === false)
 		{
 			fii1yd2yGyf1i(8)
 		}
+		else return;
 	}, 149500);
 	setTimeout(() =>
 	{
@@ -188,10 +196,11 @@ function b2f12Vj3jvb(twoqwqxmb)
 	}, 315e3);
 	setTimeout(() =>
 	{
-		if (twoojMfwjQbY3j1 == false)
+		if (twoojMfwjQbY3j1 === false)
 		{
 			mq3jwjeyc1jwfqv();
 		}
+		else return;
 	}, 316e3);
 }
 
@@ -220,7 +229,7 @@ function handleCellClick(oneydqxij4, hyvcwxqxij4)
 		if (document.getElementById("z[" + oneydqxij4 + "][" + hyvcwxqxij4 + "]").style.backgroundColor === iyx2Hyvy1)
 		{
 			alert(`Game Over! You clicked the restricted color: ${iyx2Hyvy1}`);
-			mfwjy3j1()
+			mfwjy3j1(oneydqxij4)
 		}
 		else if (document.getElementById("z[" + oneydqxij4 + "][" + hyvcwxqxij4 + "]").style.backgroundColor === "white")
 		{
