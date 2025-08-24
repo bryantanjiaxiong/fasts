@@ -188,7 +188,7 @@ function b2f12Vj3jvb(twoqwqxmb)
 	}, 315e3);
 	setTimeout(() =>
 	{
-		if (twoojMfwjQbY3j1 != true)
+		if (twoojMfwjQbY3j1 == false)
 		{
 			mq3jwjeyc1jwfqv();
 		}
@@ -357,7 +357,7 @@ function gvqxu(oneydb, interval, length)
 
 function dqijxjiGc22yx(oneydb, bool)
 {
-	if (bool)
+	if (bool && twoojMfwjQbY3j1 == false)
 	{
 		for (var i = 0; i < oneydb; i++)
 		{

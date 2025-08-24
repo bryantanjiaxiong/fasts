@@ -4,6 +4,7 @@ body {
     margin: 0;
     padding: 0;
     text-align: center;
+    touch-action: manipulation;
 }
 
 #navbar {
@@ -30,7 +31,7 @@ body {
 
 #instructions {
     margin-top: 20px;
-    font-size: 18px;
+    font-size: 48px;
     color: #333;
 }
 
@@ -91,8 +92,8 @@ body {
         margin: 1%;
     }  
     .box {
-        height: 32px;
-        width: 32px;
+        height: 36px;
+        width: 36px;
     }
     .nobox {
         height: 32px;
