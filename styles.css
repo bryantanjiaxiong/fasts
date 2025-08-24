@@ -99,8 +99,8 @@ body {
         font-size: 16px;
     }
     .box {
-        height: 40px;
-        width:  40px;
+        height: 100px;
+        width:  100px;
     }
     .nobox {
         height: 32px;
@@ -118,8 +118,8 @@ body {
         font-size: 24px;
     }
     .box {
-        height: 40px;
-        width: 40px;
+        height: 100px;
+        width: 100px;
     }
     .nobox {
         height: 36px;
