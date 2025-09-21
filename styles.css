@@ -180,3 +180,17 @@ body {
     top: 0px;
     position: absolute;
 }
+
+.slide-in-row {
+    transition: transform 1.5s cubic-bezier(.68,-0.55,.27,1.55);
+    will-change: transform;
+}
+.slide-in-left {
+    transform: translateX(-100vw);
+}
+.slide-in-right {
+    transform: translateX(100vw);
+}
+.slide-in-center {
+    transform: translateX(0);
+}
