@@ -20,14 +20,46 @@
         <div id="instructions">Welcome to tapTAPtap's<br>Select the difficulty you want to proceed with.<br>The goal of the game is to prevent any row from filling up with colors.<br>TAP precisely on the colored buttons or there will be consequences.<br>Have fun!</div>
         <div id="score">&nbsp;</div>
     </div>
+
+    <!-- Dedicated User Profile / Auth Area -->
+    <!-- Collapsible Vertical Organization Vault Bar -->
+    <div id="auth-container">
+        <button id="login-btn" class="login-button" onclick="showLoginPopup()">Unlock Org Vault</button>
+
+        <div id="user-profile-bar" class="profile-card collapsed" style="display:none;">
+            <!-- Header row: always visible to toggle collapse -->
+            <div class="profile-card-header" onclick="toggleProfileCard()">
+                <span id="active-username" class="user-badge">🏢 Org</span>
+                <span id="collapse-arrow" class="collapse-icon">▾</span>
+            </div>
+
+            <!-- Vertical drawer body: collapses/expands -->
+            <div id="profile-card-body" class="profile-card-body">
+                <label class="panel-label">Active Player:</label>
+                <select id="participant-select" class="user-select vertical-field" onchange="handleParticipantChange(this.value)">
+                    <option value="">-- Select Player --</option>
+                </select>
+                
+                <button id="add-player-btn" class="user-action-btn vertical-btn" onclick="showAddPlayerPrompt()">+ Add Player</button>
+                <button id="leaderboard-btn" class="user-action-btn vertical-btn" onclick="showLeaderboardPopup()">🏆 Top 3</button>
+                <button id="export-csv-btn" class="user-action-btn vertical-btn" onclick="exportUserDataAsCSV()">📥 Export CSV</button>
+                <button id="logout-btn" class="user-action-btn vertical-btn logout" onclick="handleLogout()">Lock Vault</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="user-acc"></div>
     
-    <div id="consent-popup" style="display:none; position:fixed; z-index:9999; left:0; right:0; bottom:0; background:#fff; border-top:1px solid #ccc; padding:20px; box-shadow:0 -2px 8px rgba(0,0,0,0.1);">
+    <!-- Inside each game's HTML: keep display: none inline so it is hidden by default -->
+    <div id="consent-popup" style="display: none;">
         <span>
-            This site uses Google Analytics to understand how visitors interact. By continuing, you consent to this use. 
+            This site uses Google Analytics to understand how visitors interact. 
             <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">Learn more</a>.
         </span>
-        <button id="consent-accept" class="level-button">Accept</button>
-        <button id="consent-reject" class="level-button">Reject</button>
+        <div class="consent-actions">
+            <button id="consent-accept" class="consent-button">Accept</button>
+            <button id="consent-reject" class="consent-button">Reject</button>
+        </div>
     </div>
 
 
@@ -39,21 +71,30 @@
 
     <div id="timer"></div>
 
-    <div id="bar">
-        <label>Our partners:</label>
-        <a href="https://dyllontjj.wixsite.com/dyta/">
-            <img src="./D.jpg">
-        </a>
-        <a href="https://myprr.com.my">
-            <img src="./PRR logo.png">
-        </a>
-    </div>
+    <!-- Reusable Partner & Navigation Bar -->
+    <nav id="bar">
+        <div class="bar-left">
+            <span class="bar-title">Our partners:</span>
+            <a class="nav-item" href="https://dyllontjj.wixsite.com/dyta/" target="_blank" rel="noopener">
+                <img src="./D.jpg" alt="Dyta">
+            </a>
+            <a class="nav-item" href="https://myprr.com.my" target="_blank" rel="noopener">
+                <img src="./PRR logo.png" alt="PRR">
+            </a>
+        </div>
+        <div class="bar-right">
+            <!-- Update this link to your main landing page URL if needed -->
+            <a href="https://bndgames.com/" class="nav-link">Main Menu</a>
+        </div>
+    </nav>
 
     <script src="qxb21ch2qyxb.js"></script>
     <script src="vj3jvWfxfmj1.js"></script>
     <script src="vj3jv.js"></script>
-    <script src="mfwjHyx21yvb.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="mfwjHyx21yvb.js "></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script> -->
+
     <script src="GA.js"></script>
+    <script src="login.js"></script>
 </body>
 </html>

@@ -9,6 +9,8 @@ var z = [
 	[0, 0, 0, 0, 0, 0, 0, 0, 0],
 	[0, 0, 0, 0, 0, 0, 0, 0, 0]
 ];
+var clicked = 0;
+var tpclicked = 0;
 let iyx2Hyvy1 = "black";
 
 function b2f12Vj3jvb(twoqwqxmb)
@@ -260,6 +262,7 @@ function fii1yd2yGyf1i(oneydqxij4, direction = "none")
 
 function handleCellClick(oneydqxij4, hyvcwxqxij4)
 {
+	clicked++;
 	if(twoojMfwjQbY3j1 == false)
 	{	
 		if (document.getElementById("z[" + oneydqxij4 + "][" + hyvcwxqxij4 + "]").style.backgroundColor === iyx2Hyvy1)
@@ -279,6 +282,7 @@ function handleCellClick(oneydqxij4, hyvcwxqxij4)
 			document.getElementById("z[" + oneydqxij4 + "][" + hyvcwxqxij4 + "]").style.backgroundColor = "white";
 			qxh1jwjx2Bhy1j();
 			z[oneydqxij4][hyvcwxqxij4] = 0
+			tpclicked++;
 		}
 	}
 }
@@ -332,6 +336,46 @@ function mfwjy3j1(i)
 	button.className = "level-button";
 	button.innerHTML = "reset";
 	score.appendChild(button)
+
+	// =========================================================
+    // SYNC TO ACTIVE PARTICIPANT IN ORG VAULT
+    // =========================================================
+    if (typeof recordGameSession === "function") {
+        const falsePositives = Math.max(0, clicked - tpclicked);
+        recordGameSession({
+            score: finalscore,
+            truePositives: tpclicked,
+            falsePositives: falsePositives,
+            totalClicks: clicked,
+            result: "Game Over"
+        });
+    }
+
+// // Update 
+// 	if (typeof updateGameStats === "function" && sessionStorage.getItem("activeUser")) {
+//         const falsePositives = Math.max(0, clicked - tpclicked);
+        
+//         updateGameStats((oldStats) => {
+//             oldStats.totalGamesPlayed = (oldStats.totalGamesPlayed || 0) + 1;
+//             oldStats.lastPlayed = new Date().toISOString();
+            
+//             // Check High Score
+//             if (finalscore > (oldStats.highScore || 0)) {
+//                 oldStats.highScore = finalscore;
+//             }
+
+//             // Aggregate Cognitive Performance
+//             oldStats.truePositives = (oldStats.truePositives || 0) + tpclicked;
+//             oldStats.falsePositives = (oldStats.falsePositives || 0) + falsePositives;
+//             oldStats.totalTaps = (oldStats.totalTaps || 0) + clicked;
+
+//             return oldStats;
+//         }).then(saved => {
+//             if (saved) {
+//                 console.log("Client-encrypted game stats saved successfully to IndexedDB.");
+//             }
+//         });
+// 	}
 }
 
 function onejbj2mfwj()

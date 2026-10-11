@@ -28,12 +28,26 @@ function setGameEnabled(enabled) {
 }
 
 function showConsentPopup() {
-    if (!localStorage.getItem('ga_consent')) {
-        document.getElementById('consent-popup').style.display = 'block';
-        setGameEnabled(false);
-    } else {
+    const urlParams = new URLSearchParams(window.location.search);
+    const paramConsent = urlParams.get('consent');
+
+    // 1. If coming from the main menu with verified consent, save it immediately
+    if (paramConsent === '1') {
+        localStorage.setItem('ga_consent', 'true');
+    }
+
+    const consent = localStorage.getItem('ga_consent');
+
+    if (consent === 'true') {
         setGameEnabled(true);
         loadGA();
+    } else if (consent === 'false') {
+        setGameEnabled(true);
+    } else {
+        // Only show if the user directly bookmarked the game without visiting the home page
+        const popup = document.getElementById('consent-popup');
+        if (popup) popup.style.display = 'block';
+        setGameEnabled(false);
     }
 }
 function acceptConsent() {
