@@ -506,6 +506,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 });
 
+function hideAuthControls() {
+    document.getElementById("auth-container")?.classList.add("hidden");
+}
+
+function showAuthControls() {
+    document.getElementById("auth-container")?.classList.remove("hidden");
+}
+
 // // Login functionality
 // function showLoginPopup() {
 //     const useracc = document.getElementById("user-acc");

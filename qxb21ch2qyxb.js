@@ -8,6 +8,9 @@ function mjxj1f2jIyx2Hyvy1Qxb21ch2qyx() {
 function mq3jwjeyc1jwfqv()
 {
     twoojMfwjQbY3j1 = true;
+    if (typeof showAuthControls === "function") {
+        showAuthControls();
+    }
 
     score = document.getElementById("score");
     let finalscore = parseInt(score.getAttribute("data-score")) || 0;

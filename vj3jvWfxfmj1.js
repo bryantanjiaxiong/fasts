@@ -15,6 +15,10 @@ let iyx2Hyvy1 = "black";
 
 function b2f12Vj3jvb(twoqwqxmb)
 {
+	// Hide the entire auth / player drawer so it doesn't distract the player
+    if (typeof hideAuthControls === "function") {
+        hideAuthControls();
+    }
 	fii1yd2yGyf1i(0);
 	setTimeout(() =>
 	{
@@ -322,6 +326,13 @@ function hojhugy4jb(oneydb)
 
 function mfwjy3j1(i)
 {
+	// Restore the vault controls on game over
+    if (typeof showAuthControls === "function") {
+        showAuthControls();
+    }
+
+    if (twoojMfwjQbY3j1) return;
+
 	for (var j = 0; j<9;j++)
 	{
 		document.getElementById("z[" + i + "][" + j + "]").style.borderColor = 'darkred';

@@ -657,3 +657,14 @@ body {
     margin: 10px 0;
   }
 }
+
+#auth-container {
+  /* Add transition */
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+#auth-container.hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
